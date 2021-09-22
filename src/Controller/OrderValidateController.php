@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
+use App\Classe\Mail;
 use App\Entity\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +22,7 @@ class OrderValidateController extends AbstractController
     /**
      * @Route("/commande/merci/{stripeSessionId}", name="order_validate")
      */
-    public function index($stripeSessionId): Response
+    public function index($stripeSessionId, Cart $cart): Response
     {
         $order = $this->entityManager->getRepository(Order::class)->findOneByStripeSessionId($stripeSessionId);
 
@@ -29,8 +31,13 @@ class OrderValidateController extends AbstractController
         }
 
         if(!$order->getIsPaid()){
+            $cart->remove();
             $order->setIsPaid(1);
             $this->entityManager->flush();
+
+            $mail = new Mail();
+            $content ="Bonjour".$order->getUser()->getFirstname()."<br/> Merci pour votre commande <br/><br/>" ;
+            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), "Votre commande sur footix.fr est validée", $content);
         }
 
         return $this->render('order_validate/index.html.twig', [
