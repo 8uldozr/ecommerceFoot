@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos bien à vendre{% endblock %}
+{% block title %}Les maillots {% endblock %}
 
 {% block content %}
 
@@ -15,11 +15,7 @@
                 <div class="row">
                     {% for product in products %}
                         <div class="col-md-4">
-                            <div class="product-item">
-                                <a href="{{path('product', {'slug' : product.slug}) }}"><img src="/uploads/files/{{ product.picture}}" alt="{{ product.name}}" class="img-fluid"></a>
-                                <h4>{{ product.name}}</h4>
-                                <p>{{ (product.price / 100) |number_format }} €</p>
-                            </div>
+                            {% include 'product/single_product.html.twig' %}
                         </div>
                     {% endfor %}
                 </div>

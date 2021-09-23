@@ -42,6 +42,7 @@ class OrderDetails
      * @ORM\Column(type="float")
      */
     private $total;
+    
 
     public function getId(): ?int
     {

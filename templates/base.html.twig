@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="La boutique qui vend des montres">
-    <title>{% block title %} Les montres {% endblock %}</title>
+    <title>{% block title %} Footix.fr - 1 weekend, 1 maillot.  {% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet"> 
@@ -31,37 +31,40 @@
     <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">  
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{{ path('home') }}">e-mob</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('products') }}">Nos bien à vendre</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Qui sommes-nous ?</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light ">
+            <a class="navbar-brand" href="{{ path('home') }}"><img src="/assets/img/logo2 - footix.fr.png" alt="" height="100px" ></a>
+            
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="navbarRight">
-            {% if app.user %}
-                <a href="{{ path('account') }}">{{ app.user.firstname }}</a> | <a href="{{ path('app_logout') }}">Se déconnecter</a>
-                {% else %}
-                <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
-            {% endif %}
-        </div>
-        <a href="{{ path('cart') }}"><img src="{{ asset ('assets/img/shopping-cart.png') }}" class="icon" alt="mon panier"></a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ path('products') }}">Consulter notre catalogue</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Qui sommes-nous ?</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
 
-        </div>
-    </nav>
-</header>
+                <div class="navbarRight">
+                    {% if app.user %}
+                        <a href="{{ path('account') }}">{{ app.user.firstname }}</a> | <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                        {% else %}
+                        <a href="{{ path('app_login') }}">Connexion |</a> <a href="{{ path('register') }}">Inscription</a>
+                    {% endif %}
+                </div>
+            <a href="{{ path('cart') }}"><img src="{{ asset ('assets/img/shopping-cart.png') }}" class="icon" alt="mon panier"></a>
+
+            </div>
+        </nav>
+    </header>
 
 <main role="main">
 
