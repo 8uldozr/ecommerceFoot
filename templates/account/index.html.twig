@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Shop - Mon compte{% endblock %}
+{% block title %}Footix.fr - Mon compte{% endblock %}
 
 {% block content %}
 
-    <h1>Mon compte</h1>
-    Bienvenue {{ app.user.firstname }} !
+    <h2>Bienvenue {{ app.user.firstname }} dans votre espace personnel.</h2>
 
-    <a href="{{ path('account_password') }}">Modifier mon mot de passe</a>
-    <a href="{{ path('account_address') }}">Gerer mes adresses</a>
-    <a href="{{ path('account_order') }}">Mes commandes</a>
+    <div class="account accountHeight mt-5 ">
+        <a href="{{ path('account_password') }}">Modifier mon mot de passe</a><br>
+        <a href="{{ path('account_address') }}" >Gerer mes adresses</a><br>
+        <a href="{{ path('account_order') }}">Mes commandes</a>
+    </div>
+    
 {% endblock %}

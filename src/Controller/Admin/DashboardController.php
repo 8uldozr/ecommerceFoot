@@ -31,7 +31,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Footix');
+            ->setTitle('Espace administrateur de Footix.fr');
     }
 
     public function configureMenuItems(): iterable

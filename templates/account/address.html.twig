@@ -4,19 +4,21 @@
 
 {% block content %}
 
-    <a href="{{ path ('account_address_add') }}" class='btn btn-info btn-sm float-right'>Ajouter une address</a>
-    <h1>Mes adresses</h1>
-    <a href="{{ path ('account') }}"> Retour</a>
+    <a href="{{ path ('account_address_add') }}" class='btn btnColor btn-sm float-right'>Ajouter une address</a>
+    <h2>Ici vous pouvez gérer vos adresses de livraison </h2>
+    <div class="account">
+        <a href="{{ path('account') }}">Retourner dans votre espace personnel -></a>
+    </div>
 
     {% if app.user.adresses | length == 0  %}
-        <p>Vous n'avez pas encode d'adresse. Pour en ajouter une, cliquez ici</p>
+        <p class="mt-5">Vous n'avez pas encore d'adresse enregistrée. Pour pouvoir passer une commande et recevoir vos maillots, pensez à en rajouter une !</p>
 
     {% else %}
 
         <div class="row">
             {% for address in app.user.adresses %}
 
-                <div class="col-md-4">
+                <div class="col-md-4 mt-5">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{ address.name }}</h5>

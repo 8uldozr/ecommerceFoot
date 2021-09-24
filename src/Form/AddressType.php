@@ -46,7 +46,10 @@ class AddressType extends AbstractType
                 'label' => ' Numéro de téléphone'
             ])
             ->add('submit', SubmitType::class,[
-                'label' => 'Valider'
+                'label' => 'Valider',
+                'attr' => [
+                    'class' => 'btnColor'
+                    ]
             ])
         ;
     }

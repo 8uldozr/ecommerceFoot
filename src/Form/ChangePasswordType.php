@@ -27,6 +27,7 @@ class ChangePasswordType extends AbstractType
             ])
             ->add('email', EmailType::class, [
                 'label' => 'E-mail',
+                'disabled' => true,
             ])
             ->add('old_password', PasswordType::class,[
                 'label' => 'Mot de passe',
@@ -45,7 +46,10 @@ class ChangePasswordType extends AbstractType
                 'second_options' => [ 'label' => 'Confirmez votre nouveau mot de passe' ]
             ])
             ->add('submit', SubmitType::class, [
-                'label' => "Mettre à jour"
+                'label' => "Mettre à jour",
+                'attr' => [
+                    'class' => 'btnColor'
+                    ]
             ])
         ;
     }

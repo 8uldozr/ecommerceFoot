@@ -4,9 +4,10 @@
 
 {% block content %}
 
-    <p>Mon panier</p>
 
 {% if cart | length > 0%}
+
+        <h2>Consulter votre panier :</h2>
         <table class="table">
 
             <thead>
@@ -32,11 +33,11 @@
 
                     <td>
                     <a href="{{ path('decrease_cart', {'id' : product.product.id }) }}">
-                        <img src="{{ asset ('assets/img/minus.png')}}" alt="Suppimer mon produit" height="12px">
+                        <img src="{{ asset ('assets/img/remove.png')}}" alt="Suppimer mon produit" height="12px">
                     </a>
                     {{ product.quantity }}
                     <a href="{{ path('add_to_cart', {'id' : product.product.id }) }}">
-                        <img src="{{ asset ('assets/img/add.png')}}" alt="Suppimer mon produit" height="12px">
+                        <img src="{{ asset ('assets/img/add1.png')}}" alt="Suppimer mon produit" height="12px">
                     </a>
                     </td>
 
@@ -59,11 +60,11 @@
         <div class="text-rigt mb-5">
             <p>Nombre de produit : {{ cart | length }}</p>
             <p>Total de mon panier : {{ (( total ) / 100) |number_format }} €</p>
-            <a href="{{ path('order') }}">Valider mon panier</a>
+            <a href="{{ path('order') }}" class='btn btnColor float-right'>Valider mon panier</a>
         </div>
     {% else %}
-        <hr>
-        <p>panier vide</p>
+        <h4>Pour l'instant votre panier est vide.</h4><br>
+        <p>Consulter notre catalogue pour découvrir nos offres en <a href="{{ path('products') }}"> cliquant ici !</a></p>
     {% endif %}
 
 {% endblock %}

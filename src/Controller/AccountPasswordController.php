@@ -43,9 +43,9 @@ class AccountPasswordController extends AbstractController
                 $user->setPassword($password);
                 $this->entityManager->flush();
 
-                $notification = "Votre mot de passe est mis à jour";
+                $notification = "Félicitation, Votre mot de passe a bien été mis à jour !";
             } else {
-                $notification = "Votre mot de passe actuel est incorrect";
+                $notification = "Votre mot de passe actuel ne correspond pas à celui que vous nous avez renseigné. :(";
             }
         }
 
