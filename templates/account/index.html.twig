@@ -4,12 +4,16 @@
 
 {% block content %}
 
-    <h2>Bienvenue {{ app.user.firstname }} dans votre espace personnel.</h2>
+    <h2>Bienvenue <strong>{{ app.user.firstname }}</strong> dans votre espace personnel :-)</h2>
 
     <div class="account accountHeight mt-5 ">
-        <a href="{{ path('account_password') }}">Modifier mon mot de passe</a><br>
-        <a href="{{ path('account_address') }}" >Gerer mes adresses</a><br>
-        <a href="{{ path('account_order') }}">Mes commandes</a>
+        <button class="btn btnColor2 btnMargin"><a href="{{ path('account_password') }}"> Modifier mon mot de passe</a></button><br>
+        <button class="btn btnColor2 btnMargin"><a href="{{ path('account_address') }}" > Gerer mes adresses</a></button><br><hr>
+        <button class="btn btnColor btnMargin"><a href="{{ path('account_order') }}"> Mes commandes</a></button><br><hr>
+
+        {% if is_granted ('ROLE_ADMIN') %}
+            <strong><a href="/admin">Pour rejoindre l'espace Administrateur. Cliquez ici.</a></strong>
+        {% endif %}
     </div>
     
 {% endblock %}

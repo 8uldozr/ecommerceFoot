@@ -32,7 +32,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light  ">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top  ">
             <a class="navbar-brand" href="{{ path('home') }}"><img src="/assets/img/logo2 - footix.fr.png" alt="" height="100px" ></a>
             
             
@@ -53,31 +53,29 @@
                     </li>
                 </ul>
 
-                <div class="navbarRight">
+                
+                        <button class="btn btnColor btnMargin"><a href="{{ path('cart') }}"><img src="{{ asset ('assets/img/shopping-cart.png') }}" class="icon" alt="mon panier">Mon panier</a></button>
+                        <div class="navbarRight">
                     {% if app.user %}
-                        <a href="{{ path('account') }}">Compte de {{ app.user.firstname }}  </a> <a href="{{ path('app_logout') }}">Se déconnecter </a>
+                        <button class="btn btnColor2 btnMargin btnNav"><a href="{{ path('account') }}">Mon compte | {{ app.user.firstname }}  </a></button> 
+                        <button class="btn btnColor2 btnMargin btnNav"><a href="{{ path('app_logout') }}">Se déconnecter </a></button>
                         {% else %}
-                        <a href="{{ path('app_login') }}">Connexion </a> <a href="{{ path('register') }}">Inscrivez-vous</a>
+                        <button class="btn btnColor2 btnMargin2"><a href="{{ path('app_login') }}">Se connecter </a></button>
                     {% endif %}
                 </div>
-            <a href="{{ path('cart') }}"><img src="{{ asset ('assets/img/shopping-cart.png') }}" class="icon" alt="mon panier"></a>
 
             </div>
         </nav>
     </header>
 
 <main role="main">
-
-
     <div class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %}">
 
         {% block content %}
         
         {% endblock %}
 
-    </div><!-- /.container -->
-
-    <!-- FOOTER -->
+    </div>
     <div class="footer">
         <p>&copy; 2016-2021 e-mob, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </div>

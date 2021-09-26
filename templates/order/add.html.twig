@@ -13,25 +13,31 @@
 
     <div class="row">
         <div class="col-md-6">
-
-            <strong>Adresse de récéption</strong>
-                {{ delivery|raw }}
-                
-            <hr>
-            <strong>Le moyen de livraison choisi :</strong><br>
-                {{ carrier.name }}<br/>
-                {{ carrier.description }}<br/>
-                {{ carrier.price |number_format(2,',','.') }} €<br/>
+            <div class="orderBox">
+                <strong>Adresse de récéption</strong><br>
+                    {{ delivery|raw }}
+            </div>  
+            
+                <div class="orderBox">
+                    <strong>Le moyen de livraison choisi :</strong><br>
+                    <div class="air">{{ carrier.name }}<br/></div>
+                    {{ carrier.description }}<br/>
+                    <div class="air"><p>Prix : <strong>{{ carrier.price |number_format(2,',','.') }} €</strong></p><br/></div>
+                </div>
         </div>
         <div class="col-md-6">
             
 
             {% set total = null %}
             {% for product in cart %}
-                <div class="row">
+               <div class="row">
                     <div class="col-2"><img src="/uploads/files/{{ product.product.picture }}" alt="{{ product.product.name }}" height="100px"></div>
-                    <div class="col-8"> x {{ product.quantity }}</div> 
-                    <div class="col-2">{{ product.product.name }}</div> 
+                    <div class="col-8 my-auto">
+                        {{ product.product.name }} <br>
+                        <small>{{ product.product.description }}</small>
+                    </div> 
+                    <div class="col-2 my-auto"> x {{ product.quantity }}</div> 
+                    
                 </div>
                     {{ ((product.product.price * product.quantity ) / 100) |number_format(2,',','.') }} €
                     {% set total = total + (product.product.price * product.quantity) %}
@@ -43,7 +49,7 @@
             <hr>
             <strong> Total : {{ (( total  / 100) + carrier.price) |number_format(2,',','.') }} €</strong>  
             <hr>
-            <a class="btn btn-success btn-block" id="checkout-button">Payer | {{ (( total  / 100) + carrier.price) |number_format(2,',','.') }} €</a>
+            <a class="btn btnColor btn-block" id="checkout-button">Payer | {{ (( total  / 100) + carrier.price) |number_format(2,',','.') }} €</a>
         </div>
 
     </div>

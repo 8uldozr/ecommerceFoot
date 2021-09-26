@@ -19,6 +19,9 @@ class OrderType extends AbstractType
             ->add('addres', EntityType::class, [
                 'label' => false,
                 'required' => true,
+                'attr' => [
+                    'class' => 'orderBox'
+                ],
                 'class' => Adress::class,
                 'choices' => $user->getAdresses(),
                 'multiple' => false,
@@ -26,7 +29,10 @@ class OrderType extends AbstractType
             ])
 
             ->add('carriers', EntityType::class, [
-                'label' => 'Choisissez votre transporteur',
+                'label' => 'Choisissez votre transporteur :',
+                'attr' => [
+                    'class' => 'orderBox'
+                ],
                 'required' => true,
                 'class' => Carrier::class,
                 'multiple' => false,
@@ -36,7 +42,10 @@ class OrderType extends AbstractType
             ])
 
             ->add('submit', SubmitType::class, [
-                'label' =>'Valider ma commande'
+                'label' =>'Valider ma commande',
+                'attr' => [
+                    'class' => 'btnColor'
+                    ]
             ])
         ;
     }
