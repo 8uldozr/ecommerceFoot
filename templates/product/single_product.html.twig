@@ -1,6 +1,15 @@
-<div class="product-item">
+{# <div class="product-item">
     <a href="{{path('product', {'slug' : product.slug}) }}"><img src="/uploads/files/{{ product.picture}}" alt="{{ product.name}}" class="img-fluid"></a>
     <h4>{{ product.name}}<br> Maillot 2021/22</h4>
 
     <p>{{ (product.price / 100) |number_format(2,',','.') }} €</p>
+</div> #}
+
+<div class="container card mt-3" style="width: 16rem;">
+  <img src="/uploads/files/{{ product.picture}}" alt="{{ product.name}}" class="img-fluid">
+    <div class="card-body">
+        <h5 class="card-title">{{ product.name}}</h5>
+        <p class="card-text">{{ product.description}}</p>
+        <a href="{{path('product', {'slug' : product.slug}) }}" class="btn btnColor2">+ de détail</a>
+    </div>
 </div>

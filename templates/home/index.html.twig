@@ -2,16 +2,23 @@
 
 {% block content %}
 
-    <div class="hotSell"><p>Séléction de nos maillots les plus vendus !</p></div>
+    <div class="hotSell"><p><img src="assets/img/fire.png" alt="">Séléction de nos maillots les plus vendus ! <img src="assets/img/fire.png" alt=""></p></div>
 
-            <div class="row mt-5">
+            <div class="row container-fluid content-row mt-5">
                 {% for product in products %}
                     <div class="col-md-3 ">
                     
                         {% include 'product/single_product.html.twig' %}
 
                     </div>
+                    
                 {% endfor %}
+
             </div>
+            <div class="account ">  
+        <button class="btn btnColor btnMargin mainBtn"><a href="{{ path('products') }}">Découvrez + de nos produits </a></button>
+    </div>
 
 {% endblock %}
+
+

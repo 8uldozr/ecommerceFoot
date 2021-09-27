@@ -45,6 +45,16 @@ main{
     margin-bottom: 5px;
 }
 
+.mainBtn{
+    margin: 25px;
+}
+
+.card-body {
+    width: 100%;
+    height: 8vw;
+    object-fit: cover;
+}
+
 
 /* ------------------------------------------------------------- */
 
@@ -61,7 +71,7 @@ main{
 
 .navbar{
     height: 100px;
-    color: rgb(255, 255, 255);
+    background-color: #ffffff;
     font-size: larger;
 }
 
@@ -70,7 +80,6 @@ main{
 }
 
 .navbar-toggler{
-    background-color: #606ad6;
     border-radius: 10px;
 }
 
@@ -98,8 +107,19 @@ main{
     background: #606ad6;
     border-radius: 5px;
     color: #ffffff;
-    font-size: 19px;
+    font-size: 30px;
     text-align: center;
+}
+
+.hotSell p img:first-child{
+    height: 20px;
+    margin-bottom: 2px;
+    margin-right: 10px;
+}
+.hotSell p img:last-child{
+    height: 20px;
+    margin-bottom: 2px;
+    margin-left: 5px;
 }
 
 .product-item h4{
@@ -157,7 +177,6 @@ main{
 /* ------------------------------------------------------------------ */
 
 .hotSell{
-    background: rgb(245,245,245);
     background: #606ad6;
     border-radius: 5px;
     color: #ffffff;
@@ -165,5 +184,10 @@ main{
     text-align: center;
 }
 
+.card-body {
+    width: 100%;
+    height: 50vw;
+    object-fit: cover;
+}
     
 }

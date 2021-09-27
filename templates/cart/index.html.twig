@@ -41,9 +41,9 @@
                     </a>
                     </td>
 
-                    <td>{{ (product.product.price / 100) |number_format }} €</td>
+                    <td>{{ (product.product.price / 100) |number_format(2,',','.') }} €</td>
 
-                    <td>{{ ((product.product.price * product.quantity ) / 100) |number_format }} €</td>
+                    <td>{{ ((product.product.price * product.quantity ) / 100) |number_format(2,',','.') }} €</td>
 
                     <td>
                         <a href="{{ path('delete_cart', { 'id':product.product.id }) }}">
@@ -59,7 +59,7 @@
 
         <div class="text-rigt mb-5">
             <p>Nombre de produit : {{ cart | length }}</p>
-            <p>Total de mon panier : {{ (( total ) / 100) |number_format }} €</p>
+            <p>Total de mon panier : {{ (( total ) / 100) |number_format(2,',','.') }} €</p>
             <a href="{{ path('order') }}" class='btn btnColor float-right'>Valider mon panier</a>
         </div>
     {% else %}
