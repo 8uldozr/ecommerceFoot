@@ -8,6 +8,7 @@
 {% if cart | length > 0%}
 
         <h2>Consulter votre panier :</h2>
+    <div class="cartResponsive">
         <table class="table">
 
             <thead>
@@ -20,25 +21,25 @@
                 <th scope="col"></th>
                 </tr>
             </thead>
-
             <tbody>
             {% set total = null %}
             {% for product in cart %}
                 <tr>
                     <th scope="row">
-                        <img src="/uploads/files/{{ product.product.picture }}" alt="{{ product.product.name }}" height="100px">
+
+                       <div class=""><img src="/uploads/files/{{ product.product.picture }}" alt="{{ product.product.name }}" height="100px"></div>
                     </th>
 
                     <td>{{ product.product.name }}</td>
 
                     <td>
-                    <a href="{{ path('decrease_cart', {'id' : product.product.id }) }}">
-                        <img src="{{ asset ('assets/img/remove.png')}}" alt="Suppimer mon produit" height="12px">
-                    </a>
+                        <a href="{{ path('decrease_cart', {'id' : product.product.id }) }}">
+                            <img src="{{ asset ('assets/img/remove.png')}}" alt="Suppimer mon produit" height="12px">
+                        </a>
                     {{ product.quantity }}
-                    <a href="{{ path('add_to_cart', {'id' : product.product.id }) }}">
-                        <img src="{{ asset ('assets/img/add1.png')}}" alt="Suppimer mon produit" height="12px">
-                    </a>
+                        <a href="{{ path('add_to_cart', {'id' : product.product.id }) }}">
+                            <img src="{{ asset ('assets/img/add1.png')}}" alt="Suppimer mon produit" height="12px">
+                        </a>
                     </td>
 
                     <td>{{ (product.product.price / 100) |number_format(2,',','.') }} €</td>
@@ -56,6 +57,7 @@
             {% endfor %}
             </tbody>
         </table>
+    </div>
 
         <div class="text-rigt mb-5">
             <p>Nombre de produit : {{ cart | length }}</p>

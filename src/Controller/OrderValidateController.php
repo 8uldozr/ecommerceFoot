@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
-use App\Classe\Mail;
 use App\Entity\Order;
+use App\Classe\OrderMail;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -39,7 +39,7 @@ class OrderValidateController extends AbstractController
             $order->setState(1);
             $this->entityManager->flush();
 
-            $mail = new Mail();
+            $mail = new OrderMail();
             $content ="Bonjour".$order->getUser()->getFirstname()."<br/> Merci pour votre commande <br/><br/>" ;
             $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), "Votre commande sur footix.fr est validée", $content);
         }

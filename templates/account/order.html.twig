@@ -4,15 +4,14 @@
 
 {% block content %}
 
-    <h1>Mes commandes</h1>
-    C'est dans cet espace que vous allez pouvoir gérer toutes vos commandes :
-    <a href="{{ path ('account') }}"> Retour</a>
+    <h4>Espace pour consulter l'état de vos commandes :</h4>
+    
 
     {% if orders | length == 0  %}
         <p>Vous n'avez pas encore passé de commande avec Footix.fr .</p>
     {% else %}
 
-    <table class="table mt-5">
+    <table class="table mt-5 cartResponsive">
         <thead>
             <tr>
                 <th scope="col">Référence</th>
@@ -48,5 +47,8 @@
     </table>
        
     {% endif %}
+    <div class="account">
+        <a href="{{ path('account') }}">Retourner dans votre espace personnel <strong>-></strong></a>
+    </div>
 
 {% endblock %}

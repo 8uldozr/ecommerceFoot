@@ -19,7 +19,7 @@
         <div class="col-md-6">
             {% for product in cart %}
                 <div class="row">
-                    <div class="col-2"><img src="/uploads/files/{{ product.product.picture }}" alt="{{ product.product.name }}" height="100px"></div>
+                    <div class="col-2 hideResponsive"><img src="/uploads/files/{{ product.product.picture }}" alt="{{ product.product.name }}" height="100px"></div>
                     <div class="col-8 my-auto">
                         {{ product.product.name }} <br>
                         <small>{{ product.product.description }}</small>
