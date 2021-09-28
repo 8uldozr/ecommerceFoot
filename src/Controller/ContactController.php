@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Classe\Mail;
 use App\Form\ContactType;
+use App\Classe\ContactMail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,10 +24,9 @@ class ContactController extends AbstractController
         {
             $this->addFlash('notice', 'Merci de nous avoir contacter . Notre équipe va vous répondre dans les meilleurs délais.');
    
-            //dd($form->getData());
             $content = "Bonjour </br>Vous avez reçus un message de <strong>".$form->getData()['prenom']." ".$form->getData()['nom']."</strong></br>Adresse email : <strong>".$form->getData()['email']."</strong> </br>Message : ".$form->getData()['content']."</br></br>";         
-            $mail = new Mail();
-            $mail->send('8uld0zr@pm.me', 'Footix.fr', "Quelqu'un a essayé de vous joindre.", $content);
+            $mail = new ContactMail();
+            $mail->send('mattana.florian@gmail.com', 'Footix.fr', "Quelqu'un a essayé de vous joindre.", $content);
         }
 
         return $this->render('contact/index.html.twig',[
