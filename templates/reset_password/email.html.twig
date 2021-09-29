@@ -1,0 +1,9 @@
+<h1>Bonjour !</h1>
+
+<p>Vous venez de demander une réinitialisation de mot de passe. Pour conclure la procédure, cliquez sur le liens suivant s'il vous plait ou copié le dans votre navigateur.</p>
+
+<a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+
+<p>Ce liens expirera dans une heure. {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+
+<p>A tout de suite.!</p>

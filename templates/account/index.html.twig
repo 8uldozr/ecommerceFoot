@@ -12,7 +12,7 @@
         <button class="btn btnColor btnMargin"><a href="{{ path('account_order') }}"> Mes commandes</a></button><br><hr>
 
         {% if is_granted ('ROLE_ADMIN') %}
-            <strong><a href="/admin">Pour rejoindre l'espace Administrateur. Cliquez ici.</a></strong>
+            <button class="btn btnColor2 mt-2"> <a href="/admin"> Pour rejoindre l'espace Administrateur. Cliquez ici.</a></button>
         {% endif %}
     </div>
     

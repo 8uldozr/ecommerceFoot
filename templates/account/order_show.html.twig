@@ -6,8 +6,6 @@
 
     <h1>Ma commande {{ order.reference }}</h1>
 
-    <a href="{{ path ('account_order') }}"> Retour</a>
-
     <hr>
 
     <strong>Commande passée le : </strong>{{ order.CreatedAt|date('d/m/Y') }}<br/>
@@ -51,5 +49,8 @@
         <strong>Total :</strong>{{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2,',', '.') }}€
     </div>
 
+     <button class="btn btnColor2 mt-2"><a href="{{ path ('account_order') }}"> Retour</a></button>
+
 
 {% endblock %}
+

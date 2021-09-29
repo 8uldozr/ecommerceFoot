@@ -30,9 +30,10 @@
         </div>
     {% endif %}
 
-    <a href="{{ path ('account_address_add') }}" class='btn btnColor btnNav '>Ajouter une adresse</a>
+    <a href="{{ path ('account_address_add') }}" class='btn btnColor2 btnNav '>Ajouter une adresse</a>
     <div class="account">
-        <a href="{{ path('account') }}">Retourner dans votre espace personnel <strong>-></strong></a>
+        <button class="btn btnColor mt-2"> <a href="{{ path('account') }}">Retourner dans votre espace personnel </a></button>
     </div>
 
 {% endblock %}
+
