@@ -4,18 +4,15 @@
 
     <div class="hotSell"><p><img src="assets/img/fire.png" alt="">Séléction de nos maillots les plus vendus ! <img src="assets/img/fire.png" alt=""></p></div>
 
-            <div class="row container-fluid content mt-5-sm-2 text-center">
-                {% for product in products %}
-                    <div class="col-md-3-sm- ">
+            <div class="row container-fluid text-center">
+                {% for product in products %}   
                     
                         {% include 'product/single_product.html.twig' %}
-
-                    </div>
                     
                 {% endfor %}
 
             </div>
-            <div class="account ">  
+    <div class="account">  
         <button class="btn btnColor btnMargin mainBtn"><a href="{{ path('products') }}">Découvrez + de nos produits </a></button>
     </div>
 
