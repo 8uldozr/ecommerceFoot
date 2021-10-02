@@ -31,9 +31,6 @@ class OrderValidateController extends AbstractController
         }
 
 
-
-
-
         if($order->getState() == 0 ){
             $cart->remove();
             $order->setState(1);
