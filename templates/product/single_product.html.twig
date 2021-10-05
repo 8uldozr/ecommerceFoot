@@ -1,8 +1,8 @@
-<div class="container card mt-3-sm-3 cardCatalogue" style="width: 16rem;">
+<div class="container card mt-3-sm-4 cardCatalogue" style="width: 16rem;">
   <img src="/uploads/files/{{ product.picture}}" alt="{{ product.name}}" class="img-fluid">
-    <div class="card-body">
-        <h5 class="card-title">{{ product.name}}</h5>
-        <p class="card-text">{{ product.description}}</p>
+    <div class="card-body mt-3-sm-3">
+        <h5 class="card-title "><a href="{{path('product', {'slug' : product.slug}) }}">{{ product.name}}</a></h5>
+        <p class="card-text"><a href="{{path('product', {'slug' : product.slug}) }}">{{ product.description}}</a></p>
         <a href="{{path('product', {'slug' : product.slug}) }}" class="btn btnColor2 bottom">+ de détail</a>
     </div>
 </div>
