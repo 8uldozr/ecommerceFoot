@@ -2,11 +2,14 @@
 
 {% block content %}
 
-    <h4>Pas encore de compte ? Pour nous rejoindre c'est ici. Ca ne prend qu'une minute.</h4>
+    <h1>Inscrivez-vous ici. Ca ne prend qu'une minute.</h1>
 
     {% if notification %}
 
-        <div class="alert alert-info">{{ notification }}</div>
+        <div class="alert alert-info">
+            {{ notification }}
+        </div>
+        
         <hr>
 
     {% endif %}

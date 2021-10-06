@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Demande de réinitialisation du mot de passe - footix.fr{% endblock %}
+{% block title %}Demande de réinitialisation du mot de passe - footix {% endblock %}
 
 {% block content %}
     {% for flashError in app.flashes('reset_password_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-    <h4>Demande de réinitialisation du mot de passe.</h4>
+    <h1>Demande de réinitialisation du mot de passe.</h1>
 
     {{ form_start(requestForm) }}
         {{ form_row(requestForm.email) }}

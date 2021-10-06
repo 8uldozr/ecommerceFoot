@@ -1,21 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nous contacter -- shop.footix.site !{% endblock %}
+{% block title %}Nous contacter - shop.footix.site !{% endblock %}
 
 {% block content %}
 
-<h4>Nous contacter par mail :</h4> <hr>
+<h1>Nous contacter par mail :</h1> <hr>
 
 {% if notification %}
-        <div class="alert alert-info">{{ notification }}</div>
+
+        <div class="alert alert-info">
+            {{ notification }}
+        </div>
+        
 {% endif %}
 
 <div class="row">
-    <div class="col-md-8">{{ form(form)}}</div>
+    <div class="col-md-8">
+        {{ form(form)}}
+    </div>
     <div class="col-md-4">
         <strong> Par voie postale :</strong><br>
-        Footix.store <br>
-        44 avenue Mathurin Moreau, <br>
+        shop.footix.site <br>
+        88 avenue Mathurin Moreau, <br>
         75020, Paris - France <br><hr>
         <strong>Par téléphone :</strong><br>
         06.29.75.31.85 

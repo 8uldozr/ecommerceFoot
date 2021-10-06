@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Footix.fr - Mon compte{% endblock %}
+{% block title %} Mon compte - Footix{% endblock %}
 
 {% block content %}
 
-    <h2>Bienvenue <strong>{{ app.user.firstname }}</strong> dans votre espace personnel :-)</h2>
+    <h1>Bienvenue <strong>{{ app.user.firstname }}</strong> dans votre espace personnel :-)</h1>
 
     <div class="account accountHeight mt-5 ">
         <button class="btn btnColor2 btnMargin"><a href="{{ path('account_password') }}"> Modifier mon mot de passe</a></button><br>

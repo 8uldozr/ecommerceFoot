@@ -4,12 +4,11 @@
         <script src="https://js.stripe.com/v3/"></script>
 {% endblock %}
 
-{% block title %}Valider ma commande - Maillot{% endblock %}
+{% block title %}Valider ma commande - footix{% endblock %}
 
 {% block content %}
 
-    <h2> Récapitulatif de la commande </h2>
-    <p> Vérifiez vos infos avant paiement </p>
+    <h1> Récapitulatif de la commande </h1>
 
     <div class="row">
         <div class="col-md-6">
@@ -20,13 +19,20 @@
             
                 <div class="orderBox">
                     <strong>Le moyen de livraison choisi :</strong><br>
-                    <div class="air">{{ carrier.name }}<br/></div>
-                    {{ carrier.description }}<br/>
-                    <div class="air"><p>Prix : <strong>{{ (carrier.price / 100) |number_format(2,',','.') }} €</strong></p><br/></div>
+
+                        <div class="air">
+                            {{ carrier.name }}<br/>
+                        </div>
+
+                            {{ carrier.description }}<br/>
+
+                    <div class="air">
+                        <p>Prix : <strong>{{ (carrier.price / 100) |number_format(2,',','.') }} €</strong></p><br/>
+                    </div>
                 </div>
         </div>
+
         <div class="col-md-6">
-            
 
             {% set total = null %}
             {% for product in cart %}

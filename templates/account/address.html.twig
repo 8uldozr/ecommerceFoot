@@ -1,27 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes adresses{% endblock %}
+{% block title %}Mes adresses - footix{% endblock %}
 
 {% block content %}
-    <h4>Ici vous pouvez gérer vos adresses de livraison :</h4>
+    <h1>Ici vous pouvez gérer vos adresses de livraison :</h1>
 
 
     {% if app.user.adresses | length == 0  %}
-        <p class="mt-5 miniblock">Vous n'avez pas encore d'adresse enregistrée. Pour pouvoir passer une commande et recevoir vos maillots, pensez à en rajouter une !</p>
+
+    <p class="mt-5 miniblock">Vous n'avez pas encore d'adresse enregistrée. Pour pouvoir passer une commande et recevoir vos maillots, pensez à en rajouter une !</p>
 
     {% else %}
 
         <div class="row">
             {% for address in app.user.adresses %}
-
                 <div class="col-md-4 mt-5">
                     <div class="card" style="width: 18rem;">
-                        <div class="card-body">
+                        <div class="card-body container">
                             <h5 class="card-title">{{ address.name }}</h5>
-                            <p class="card-text">
-                                {{ address.address }} <br/>
-                                {{ address.zip }} - {{ address.city }} - {{ address.country }}
-                            </p>
+                                <p class="card-text adress">
+                                    {{ address.address }} <br/>
+                                    {{ address.zip }} - {{ address.city }} - {{ address.country }}
+                                </p>
                             <a href="{{ path ('account_address_edit', { 'id': address.id }) }}">Modifier</a> | <a href="{{ path ('account_address_delete', { 'id': address.id }) }}" >Supprimer</a>
                         </div>
                     </div>
@@ -31,6 +31,7 @@
     {% endif %}
 
     <a href="{{ path ('account_address_add') }}" class='btn btnColor2 btnNav '>Ajouter une adresse</a>
+
     <div class="account">
         <button class="btn btnColor mt-2"> <a href="{{ path('account') }}">Retourner dans votre espace personnel </a></button>
     </div>

@@ -1,17 +1,23 @@
 {% extends 'base.html.twig' %}
 
+
 {% block content %}
 
-    <div class="hotSell"><p><img src="assets/img/fire.png" alt="">Séléction de nos maillots les plus vendus ! <img src="assets/img/fire.png" alt=""></p></div>
+<h1>Bienvenue sur footix </h1>
+    <div class="hotSell">
+        <p><img src="assets/img/fire.png" alt="">Séléction de nos maillots les plus vendus ! <img src="assets/img/fire.png" alt=""></p>
+    </div>
 
-            <div class="row container-fluid content mt-5-sm-2 text-center">
+    <div class="row container-fluid content mt-5-sm-2 text-center">
+
                 {% for product in products %}   
                     <div class="col-md-3-sm-2 ">
                         {% include 'product/single_product.html.twig' %}
                     </div>
                 {% endfor %}
 
-            </div>
+    </div>
+    
     <div class="account">  
         <button class="btn btnColor btnMargin mainBtn"><a href="{{ path('products') }}">Découvrez + de nos produits </a></button>
     </div>

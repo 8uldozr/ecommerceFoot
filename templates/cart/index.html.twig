@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon panier!{% endblock %}
+{% block title %}Mon panier - Footix{% endblock %}
 
 {% block content %}
 
 
 {% if cart | length > 0%}
 
-        <h2>Consulter votre panier :</h2>
+        <h1>Consulter votre panier :</h1>
     <div class="cartResponsive">
         <table class="table">
 
@@ -19,43 +19,49 @@
                 <th scope="col">Prix</th>
                 <th scope="col">Total</th>
                 <th scope="col"></th>
-                </tr>
+            </tr>
+
             </thead>
-            <tbody>
-            {% set total = null %}
-            {% for product in cart %}
-                <tr>
-                    <th scope="row">
+                <tbody>
+                {% set total = null %}
+                {% for product in cart %}
+                    <tr>
+                        <th scope="row">
+                            <div>
+                                <img src="/uploads/files/{{ product.product.picture }}" alt="{{ product.product.name }}" height="100px">
+                            </div>
+                        </th>
 
-                       <div class=""><img src="/uploads/files/{{ product.product.picture }}" alt="{{ product.product.name }}" height="100px"></div>
-                    </th>
+                        <td>
+                            {{ product.product.name }}
+                        </td>
 
-                    <td>{{ product.product.name }}</td>
+                        <td>
+                            <a href="{{ path('decrease_cart', {'id' : product.product.id }) }}">
+                                <img src="{{ asset ('assets/img/remove.png')}}" alt="Suppimer mon produit" height="12px">
+                            </a>
+                        {{ product.quantity }}
+                            <a href="{{ path('add_to_cart', {'id' : product.product.id }) }}">
+                                <img src="{{ asset ('assets/img/add1.png')}}" alt="Suppimer mon produit" height="12px">
+                            </a>
+                        </td>
 
-                    <td>
-                        <a href="{{ path('decrease_cart', {'id' : product.product.id }) }}">
-                            <img src="{{ asset ('assets/img/remove.png')}}" alt="Suppimer mon produit" height="12px">
-                        </a>
-                    {{ product.quantity }}
-                        <a href="{{ path('add_to_cart', {'id' : product.product.id }) }}">
-                            <img src="{{ asset ('assets/img/add1.png')}}" alt="Suppimer mon produit" height="12px">
-                        </a>
-                    </td>
+                        <td>
+                            {{ (product.product.price / 100) |number_format(2,',','.') }} €
+                        </td>
 
-                    <td>{{ (product.product.price / 100) |number_format(2,',','.') }} €</td>
+                        <td>
+                            {{ ((product.product.price * product.quantity ) / 100) |number_format(2,',','.') }} €</td>
+                        <td>
+                            <a href="{{ path('delete_cart', { 'id':product.product.id }) }}">
+                                <img src="{{ asset ('assets/img/delete.png')}}" alt="Suppimer mon produit" height="20px">
+                            </a>
+                        </td>
+                    </tr>
 
-                    <td>{{ ((product.product.price * product.quantity ) / 100) |number_format(2,',','.') }} €</td>
-
-                    <td>
-                        <a href="{{ path('delete_cart', { 'id':product.product.id }) }}">
-                            <img src="{{ asset ('assets/img/delete.png')}}" alt="Suppimer mon produit" height="20px">
-                        </a>
-                    </td>
-                </tr>
-
-                {% set total = total + (product.product.price * product.quantity) %}
-            {% endfor %}
-            </tbody>
+                    {% set total = total + (product.product.price * product.quantity) %}
+                {% endfor %}
+                </tbody>
         </table>
     </div>
             
