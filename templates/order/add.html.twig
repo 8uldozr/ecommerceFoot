@@ -50,6 +50,7 @@
             <strong> Total : {{ (( total  / 100) + (carrier.price / 100)) |number_format(2,',','.') }} €</strong>  
             <hr>
             <a class="btn btnColor btn-block" id="checkout-button">Payer | {{ (( total  / 100) + (carrier.price / 100 )) |number_format(2,',','.') }} €</a>
+            <button class="btn btnColor2 marginTop"><a href="{{ path('order') }}">Retour</a></button>
         </div>
 
     </div>

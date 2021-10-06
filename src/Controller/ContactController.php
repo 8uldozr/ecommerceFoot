@@ -17,6 +17,8 @@ class ContactController extends AbstractController
      */
     public function index(Request $request): Response
     {
+        $notification = null;
+        
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
@@ -27,10 +29,12 @@ class ContactController extends AbstractController
             $content = "Bonjour </br>Vous avez reçus un message de <strong>".$form->getData()['prenom']." ".$form->getData()['nom']."</strong></br>Adresse email : <strong>".$form->getData()['email']."</strong> </br>Message : ".$form->getData()['content']."</br></br>";         
             $mail = new ContactMail();
             $mail->send('mattana.florian@gmail.com', 'Footix.fr', "Quelqu'un a essayé de vous joindre.", $content);
+            $notification ="Votre mail s'est parfaitement envoyé. Nous vous répondrons dès que possible.";
         }
 
         return $this->render('contact/index.html.twig',[
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'notification' => $notification
         ]);
     }
 }

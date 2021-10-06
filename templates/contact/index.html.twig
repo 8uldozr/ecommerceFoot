@@ -1,10 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nous contacter -- Footix.fr !{% endblock %}
+{% block title %}Nous contacter -- shop.footix.site !{% endblock %}
 
 {% block content %}
 
 <h4>Nous contacter par mail :</h4> <hr>
+
+{% if notification %}
+        <div class="alert alert-info">{{ notification }}</div>
+{% endif %}
+
 <div class="row">
     <div class="col-md-8">{{ form(form)}}</div>
     <div class="col-md-4">

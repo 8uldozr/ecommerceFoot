@@ -61,6 +61,9 @@ main{
     margin: 25px;
 }
 
+.marginTop{
+    margin-top: 10px;
+}
 .card-text a {
     text-decoration: none;
     color: inherit;
@@ -69,6 +72,10 @@ main{
 .card-title a {
     text-decoration: none;
     color: inherit;
+}
+
+.center{
+    text-align: center;
 }
 
 .card-body {
@@ -291,6 +298,15 @@ h4{
 
 .hideResponsive{
     display: none;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+}
+
+.smaller{
+    font-size:16px;
 }
 
 }
